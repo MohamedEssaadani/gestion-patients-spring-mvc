@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="template.html">
+<body>
+<div layout:fragment="content">
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h3 th:if="${mode == 'new'}">Nouveau Patient</h3>
+                <h3 th:if="${mode == 'edit'}">Modifier Patient</h3>
+            </div>
+            <div class="card-body">
+                <form method="post" th:action="@{savePatient}">
+                    <div class="form-group row">
+                        <input type="hidden" name="id" class="form-control col-md-6" th:value="${patient.id}">
+                    </div>
+                    <div class="form-group row">
+                        <label class="custom-control-label col-md-6">Name :</label>
+                        <input type="text" name="nom" class="form-control col-md-6" th:value="${patient.nom}">
+                        <span th:errors="${patient.nom}"></span>
+                    </div>
+                    <div class="form-group row">
+                        <label class="custom-control-label col-md-6">Date Naissance :</label>
+                        <input type="date" name="dateNaissance" class="form-control col-md-6"  th:value="${patient.dateNaissance}">
+                        <span th:errors="${patient.dateNaissance}"></span>
+                    </div>
+                    <div class="form-group row">
+                        <label class="custom-control-label col-md-6">Score :</label>
+                        <input type="text" name="score" class="form-control col-md-6"  th:value="${patient.score}">
+                        <span th:errors="${patient.score}"></span>
+                    </div>
+                    <div class="form-group row">
+                        <label class="custom-control-label col-md-6">Malade :</label>
+                        <input type="checkbox" name="malade" th:checked="${patient.malade}" >
+                        <span th:errors="${patient.malade}"></span>
+                    </div>
+                    <div class="form-group row">
+                        <label class="custom-control-label col-md-6">Medecin :</label>
+                            <select  th:field="${patient.medecin}" id="dropMedecin">
+                                <option value="0">selectionner le medecin</option>
+                                <option th:each="medecin : ${medecinList}" th:value="${medecin.id}" th:text="${medecin.nom}"></option>
+                            </select>
+                        <span th:errors="${patient.malade}"></span>
+                    </div>
+                    <button class="btn btn-success " type="submit">Save</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

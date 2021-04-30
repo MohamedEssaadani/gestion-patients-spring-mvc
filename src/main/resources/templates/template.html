@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Patients </title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="/webjars/popper.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Patients</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{patients}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" >Medecins</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">Patients</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" th:href="@{formPatient}">Ajouter</a>
+                    <a class="dropdown-item" href="#">Chercher</a>
+                </div>
+            </li>
+
+        </ul>
+
+        <ul class="navbar nav ml-auto">
+
+            <li class="nav-item dropdown ">
+                <a class="nav-link dropdown-toggle" id="navbardropauth" data-toggle="dropdown">Username</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Login</a>
+                    <a class="dropdown-item" th:href="@{logout}">Logout</a>
+                    <a class="dropdown-item" href="#">Profile</a>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+
+<section layout:fragment="content">
+
+</section>
+
+</body>
+</html>
