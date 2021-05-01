@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      layout:decorator="template.html">
+<head>
+    <meta charset="UTF-8">
+    <title>Not Authorized</title>
+</head>
+<body>
+<div layout:fragment="content">
+  <div class="container mt-5">
+    <div class="card alert alert-danger">
+      <div class="card-header">
+        <h3>Non Autorisé!</h3>
+      </div>
+      <div class="card-body">
+        <p>Vous n'êtes pas autorisé!</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

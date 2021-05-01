@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
 <head>
     <meta charset="UTF-8">
     <title>Patients </title>
@@ -17,7 +21,6 @@
 
     <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
-
             <li class="nav-item">
                 <a class="nav-link" th:href="@{patients}">Home</a>
             </li>
@@ -25,25 +28,27 @@
                 <a class="nav-link" >Medecins</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">Patients</a>
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Patients</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" th:href="@{formPatient}">Ajouter</a>
+                    <a class="dropdown-item" sec:authorize="hasRole('ADMIN')" th:href="@{formPatient}">Ajouter</a>
                     <a class="dropdown-item" href="#">Chercher</a>
                 </div>
             </li>
 
         </ul>
 
-        <ul class="navbar nav ml-auto">
-
+        <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown ">
-                <a class="nav-link dropdown-toggle" id="navbardropauth" data-toggle="dropdown">Username</a>
+                <a class="nav-link dropdown-toggle" id="navbardropauth"  href="#" data-toggle="dropdown">
+                    <span sec:authentication="name"/>
+                </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Login</a>
+                    <a class="dropdown-item" sec:authorize="!isAuthenticated()" href="#">Login</a>
                     <a class="dropdown-item" th:href="@{logout}">Logout</a>
                     <a class="dropdown-item" href="#">Profile</a>
                 </div>
             </li>
+
         </ul>
 
     </div>
