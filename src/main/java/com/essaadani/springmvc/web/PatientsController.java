@@ -57,6 +57,7 @@ public class PatientsController {
         model.addAttribute("medecinList", medecinList);
         model.addAttribute("patient", new Patient());
         model.addAttribute("mode", "new");
+        //Ss
         return "formPatient";
     }
 
