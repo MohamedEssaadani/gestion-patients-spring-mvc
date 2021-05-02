@@ -36,10 +36,10 @@
                         <td th:text="${p.medecin.nom}"></td>
                         <td><a onclick="return confirm('êtes vous sure vouloir de supprimer?');"
                                class="btn btn-danger"
-                               sec:authorize="hasRole('ADMIN')"
+                               sec:authorize="hasRole('ROLE_ADMIN')"
                                th:href="@{deletePatient(id=${p.id}, keyword=${keyword}, page=${currentPage}, size=${size})}">Delete</a>
                             <a class="btn btn-success"
-                               sec:authorize="hasRole('ADMIN')"
+                               sec:authorize="hasRole('ROLE_ADMIN')"
                                th:href="@{editPatient(id=${p.id})}">Edit</a>
                         </td>
 
