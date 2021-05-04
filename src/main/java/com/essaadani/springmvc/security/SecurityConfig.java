@@ -32,10 +32,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.formLogin();
+        http.formLogin().loginPage("/connect");
         http.authorizeRequests().antMatchers("/admin/**", "/save**/**", "/delete**/**", "/form**/**").hasRole("ADMIN");
         http.authorizeRequests().antMatchers("/patients**/**").hasRole("USER");
-        http.authorizeRequests().antMatchers("/user**/**").permitAll();
+        http.authorizeRequests().antMatchers("/user**/**", "/connect", "/webjars/**").permitAll();
         http.authorizeRequests().anyRequest().authenticated();
         http.csrf();
         http.exceptionHandling().accessDeniedPage("/notAuthorized");

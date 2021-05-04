@@ -9,4 +9,9 @@ public class SecurityController {
     public String error(){
         return "notAuthorized";
     }
+
+    @GetMapping("/connect")
+    public String login(){
+        return "login";
+    }
 }
