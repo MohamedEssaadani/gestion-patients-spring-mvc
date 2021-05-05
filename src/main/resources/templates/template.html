@@ -25,10 +25,18 @@
                 <a class="nav-link" th:href="@{patients}">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" >Medecins</a>
+                <a class="nav-link" th:href="@{medecins}" >Medecins</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Patients</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{formPatient}">Ajouter</a>
+                    <a class="dropdown-item" href="#">Chercher</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Medecins</a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{formPatient}">Ajouter</a>
                     <a class="dropdown-item" href="#">Chercher</a>
