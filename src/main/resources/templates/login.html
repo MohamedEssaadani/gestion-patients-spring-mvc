@@ -7,22 +7,25 @@
 <body>
 <div layout:fragment="content">
     <div class="container mt-5">
-        <div class="card col-md-6">
-            <div class="card-header ">
-                <h3>Authentification</h3>
-            </div>
-            <div class="card-body">
-                <form th:action="@{login}" method="post">
-                    <div class="form-group">
-                        <label class="custom-control-label">Username</label>
-                        <input type="text" name="username" class="form-control"/>
+            <div class="col-md-6 offset-md-3">
+                <div class="card ">
+                    <div class="card-header ">
+                        <h3>Authentification</h3>
                     </div>
-                    <div class="form-group">
-                        <label class="custom-control-label">Password</label>
-                        <input type="password" name="password" class="form-control"/>
-                      </div>
-                    <button class="btn btn-primary">Connect</button>
-                </form>
+                    <div class="card-body">
+                        <h4 th:if="${param.error}" class="text-danger mb-3">Bad Credentials! </h4>
+                        <form th:action="@{login}" method="post">
+                            <div class="form-group">
+                                <label class="custom-control-label">Username</label>
+                                <input type="text" name="username" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="custom-control-label">Password</label>
+                                <input type="password" name="password" class="form-control"/>
+                            </div>
+                            <button class="btn btn-primary">Connect</button>
+                        </form>
+                    </div>
             </div>
         </div>
     </div>
