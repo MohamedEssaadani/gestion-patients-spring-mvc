@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="template.html">
+<body>
+<div layout:fragment="content">
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h3 th:if="${mode == 'new'}">Nouveau Medecin</h3>
+                <h3 th:if="${mode == 'edit'}">Modifier Medecin</h3>
+            </div>
+            <div class="card-body">
+                <form method="post" th:action="@{saveMedecin}">
+                    <div class="form-group row">
+                        <input type="hidden" name="id" class="form-control col-md-6" th:value="${medecin.id}">
+                    </div>
+                    <div class="form-group row">
+                        <label class="custom-control-label col-md-6">Name :</label>
+                        <input type="text" name="nom" class="form-control col-md-6" th:value="${medecin.nom}">
+                        <span class="text-danger ml-auto" th:errors="${medecin.nom}"></span>
+                    </div>
+                    <div class="form-group row">
+                        <label class="custom-control-label col-md-6">Date Naissance :</label>
+                        <input type="date" name="dateNaissance" class="form-control col-md-6"  th:value="${medecin.dateNaissance}">
+                        <span class="text-danger ml-auto" th:errors="${medecin.dateNaissance}"></span>
+                    </div>
+                    <div class="form-group row">
+                        <label class="custom-control-label col-md-6">Specialite :</label>
+                        <select  th:field="${medecin.specialite}" id="dropSpecialite">
+                        <option value="0">Selectionner le specialité</option>
+                        <option th:each="specialite : ${specialiteList}" th:value="${specialite}" th:text="${specialite}"></option>
+                    </select>
+                        <span  class="text-danger ml-auto" th:errors="${medecin.specialite}"></span>
+                    </div>
+                    <button class="btn btn-success " type="submit">Save</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

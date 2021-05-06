@@ -38,7 +38,7 @@
                                th:href="@{deleteMedecin(id=${m.id}, keyword=${keyword}, page=${currentPage}, size=${size})}">Delete</a>
                             <a class="btn btn-success"
                                sec:authorize="hasRole('ROLE_ADMIN')"
-                               th:href="@{editPatient(id=${m.id})}">Edit</a>
+                               th:href="@{editMedecin(id=${m.id})}">Edit</a>
                         </td>
 
                     </tr>
